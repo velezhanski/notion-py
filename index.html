@@ -1,0 +1,33 @@
+<ul id="pages"></ul>
+<script>
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "https://notion-py.herokuapp.com/todo/Housing";
+var pages_list = "test";
+
+// fetch(proxyurl + url)
+// .then(response => response.text())
+// .then(contents => console.log(contents))
+// .then(contents => {
+  // console.log(contents);
+  // for (i = 0; i < contents.length; i++) { 
+  //   pages_list.push("<li>" + contents[i] + "</li>")
+  //   console.log("TEST: " + contents.length);
+  // }
+// })
+// .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+
+fetch("https://notion-py.herokuapp.com/todo/Housing", {
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "notion-py.herokuapp.com"    
+      }
+})
+.then(response => {
+    console.log(response);
+})
+.catch(err => {
+    console.log(err);
+});
+  
+document.getElementById("pages").innerHTML = pages_list
+</script>
