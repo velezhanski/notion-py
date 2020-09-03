@@ -6,7 +6,7 @@ client = NotionClient(token_v2="7918c45b97adf9dcec7a32a015be86024d4f2447772c2e92
 # Replace this URL with the URL of the page you want to edit
 page = client.get_block("https://www.notion.so/ACP-American-Corporate-Partners-ccc5b8d3be294ac0a8df87e601c1cddc")
 
-print("The old title is:", page.title)
+print("Page Info: ", page.logo)
 
 # Note: You can use Markdown! We convert on-the-fly to Notion's internal formatted text data structure.
 # page.title = "The title has now changed, and has *live-updated* in the browser!"
