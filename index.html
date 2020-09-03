@@ -1,30 +1,22 @@
 <ul id="pages"></ul>
 <script>
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://notion-py.herokuapp.com/todo/Housing";
-var pages_list = "test";
+const url = "https://notion-py.herokuapp.com/todo/Business";
+var pages_list = [];
+var temp = [];
 
-// fetch(proxyurl + url)
-// .then(response => response.text())
-// .then(contents => console.log(contents))
-// .then(contents => {
-  // console.log(contents);
-  // for (i = 0; i < contents.length; i++) { 
-  //   pages_list.push("<li>" + contents[i] + "</li>")
-  //   console.log("TEST: " + contents.length);
-  // }
-// })
-// .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+const request = async () => {
+    const response = await fetch(proxyurl + url);
+    const json = await response.json();
+    console.log(json);
 
-fetch("https://notion-py.herokuapp.com/todo/Housing", {
-    "method": "GET"
-})
-.then(response => {
-    console.log(response);
-})
-.catch(err => {
-    console.log(err);
-});
-  
-document.getElementById("pages").innerHTML = pages_list
+    for (i = 0; i < json.length; i++) { 
+      console.log("TEST: " + json.length);
+      pages_list.push("<li>" + json[i] + "</li>")
+    }
+
+    document.getElementById("pages").innerHTML = pages_list.join("")
+}
+
+request();  
 </script>
