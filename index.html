@@ -17,10 +17,7 @@ var pages_list = "test";
 // .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
 
 fetch("https://notion-py.herokuapp.com/todo/Housing", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "notion-py.herokuapp.com"    
-      }
+    "method": "GET"
 })
 .then(response => {
     console.log(response);
