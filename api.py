@@ -10,8 +10,9 @@ pages = []
 
 class Todo(Resource):
   def get(self, id):
+    pages.clear()
     for row in cv.collection.get_rows():
       if id in row.category:
         pages.append(row.title)
     return pages, 200
-    return "Item not found for the id: {}".format(id), 404
+
