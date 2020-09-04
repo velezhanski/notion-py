@@ -16,7 +16,8 @@ class Todo(Resource):
         temp = {
           "title": row.title,
           "website": row.website,
-          "description": row.description
+          "description": row.description,
+          "logo": row.logo
           }
         pages.append(temp)
     return pages, 200
