@@ -13,6 +13,11 @@ class Todo(Resource):
     pages.clear()
     for row in cv.collection.get_rows():
       if id in row.category:
-        pages.append(row.title)
+        temp = {
+          "title": row.title,
+          "website": row.website,
+          "description": row.description
+          }
+        pages.append(temp)
     return pages, 200
 

@@ -12,7 +12,7 @@ const request = async () => {
 
     for (i = 0; i < json.length; i++) { 
       console.log("TEST: " + json.length);
-      pages_list.push("<li>" + json[i] + "</li>")
+      pages_list.push("<li>" + json[i]['title'] + "</li>")
     }
 
     document.getElementById("pages").innerHTML = pages_list.join("")
