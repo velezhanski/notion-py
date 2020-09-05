@@ -20,5 +20,6 @@ class Todo(Resource):
           "logo": row.logo
           }
         pages.append(temp)
+    print(row)
     return pages, 200
 
