@@ -8,7 +8,7 @@ cv = client.get_collection_view("https://www.notion.so/2b0f3719ede9425dadee305fb
 
 pages = []
 
-class Category(Resource):
+class Todo(Resource):
   def get(self, id):
     pages.clear()
     for row in cv.collection.get_rows():
