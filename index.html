@@ -1,17 +1,15 @@
 <ul id="pages"></ul>
 <script>
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://notion-py.herokuapp.com/category/Business";
+const url = "https://notion-py.herokuapp.com/todo/Business";
 var pages_list = [];
 var temp = [];
 
 const request = async () => {
     const response = await fetch(proxyurl + url);
     const json = await response.json();
-    console.log(json);
 
     for (i = 0; i < json.length; i++) { 
-      console.log("TEST: " + json.length);
       pages_list.push('<img height=50 src="' + json[i]['logo'] + '"><br>' + '<li>' + '<a style="text-decoration:none; color:black;" href="' + json[i]['website'] + '">' + '<strong>' + json[i]['title'] + ' - ' + '</strong></a>' + json[i]['description'] + '</li><br><br><br>')
     
     }
