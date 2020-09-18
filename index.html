@@ -10,9 +10,7 @@
 
   .loader {
     border: 16px solid #f3f3f3;
-    /* Light grey */
     border-top: 16px solid #3498db;
-    /* Blue */
     border-radius: 50%;
     width: 120px;
     height: 120px;
@@ -48,7 +46,6 @@
         '<a style="text-decoration:none; color:black;" href="' + json[i]['website'] + '">' + '<strong>' + json[i][
           'title'
         ] + ' - ' + '</strong></a>' + json[i]['description'] + '</li><br><br><br>')
-
     }
 
     document.getElementById("pages").innerHTML = pages_list.join("")
