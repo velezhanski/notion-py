@@ -1,21 +1,59 @@
 <ul id="pages"></ul>
-<script>
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://notion-py.herokuapp.com/todo/Business";
-var pages_list = [];
-var temp = [];
+<div class="center">
+  <div id="loader" class="loader"></div>
+</div>
+<style>
+  .center {
+    justify-content: center;
+    display: flex;
+  }
 
-const request = async () => {
+  .loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script>
+  const proxyurl = "https://cors-anywhere.herokuapp.com/";
+  const url = "https://notion-py.herokuapp.com/todo/Business";
+  var pages_list = [];
+  var temp = [];
+
+  const request = async () => {
     const response = await fetch(proxyurl + url);
     const json = await response.json();
 
-    for (i = 0; i < json.length; i++) { 
-      pages_list.push('<img height=50 src="' + json[i]['logo'] + '"><br>' + '<li>' + '<a style="text-decoration:none; color:black;" href="' + json[i]['website'] + '">' + '<strong>' + json[i]['title'] + ' - ' + '</strong></a>' + json[i]['description'] + '</li><br><br><br>')
-    
+    console.log(json);
+
+    for (i = 0; i < json.length; i++) {
+      console.log("TEST: " + json.length);
+      pages_list.push('<a style="text-decoration:none; color:black;" href="' + json[i]['website'] + '">' +
+        '<img height=50 src="' + json[i]['logo'] + '">' + '</a>' + '<br>' + '<li>' +
+        '<a style="text-decoration:none; color:black;" href="' + json[i]['website'] + '">' + '<strong>' + json[i][
+          'title'
+        ] + ' - ' + '</strong></a>' + json[i]['description'] + '</li><br><br><br>')
+
     }
 
     document.getElementById("pages").innerHTML = pages_list.join("")
-}
+    document.getElementById("loader").style.display = "none";
+  }
 
-request();  
+  request();
 </script>
